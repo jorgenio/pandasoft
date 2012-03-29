@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>rempleado</class>
+ <widget class="QDialog" name="rempleado">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>784</width>
+    <height>328</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Reporte de Empleado</string>
+  </property>
+  <widget class="QPushButton" name="cerrar">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>290</y>
+     <width>105</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cerrar</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pandasoft.qrc">
+     <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="print">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>290</y>
+     <width>105</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Imprimir</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pandasoft.qrc">
+     <normaloff>:/images/document-print-preview.png</normaloff>:/images/document-print-preview.png</iconset>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>751</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Reporte Empleado</string>
+   </property>
+   <widget class="QTableView" name="lista">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>721</width>
+      <height>241</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="cerrar_2">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>460</y>
+     <width>105</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cerrar</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pandasoft.qrc">
+     <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="print_2">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>460</y>
+     <width>105</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Imprimir</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pandasoft.qrc">
+     <normaloff>:/images/document-print-preview.png</normaloff>:/images/document-print-preview.png</iconset>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>lista</tabstop>
+  <tabstop>cerrar</tabstop>
+  <tabstop>print</tabstop>
+  <tabstop>print_2</tabstop>
+  <tabstop>cerrar_2</tabstop>
+ </tabstops>
+ <resources>
+  <include location="pandasoft.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>cerrar</sender>
+   <signal>clicked()</signal>
+   <receiver>rempleado</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>157</x>
+     <y>305</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>56</x>
+     <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

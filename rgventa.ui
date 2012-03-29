@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>rgventa</class>
+ <widget class="QDialog" name="rgventa">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>423</width>
+    <height>334</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="cerrar">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>300</y>
+     <width>105</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cerrar</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pandasoft.qrc">
+     <normaloff>:/images/dialog-close.png</normaloff>:/images/dialog-close.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="print">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>300</y>
+     <width>105</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Imprimir</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pandasoft.qrc">
+     <normaloff>:/images/document-print-preview.png</normaloff>:/images/document-print-preview.png</iconset>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>381</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Reporte de detalle de ventas</string>
+   </property>
+   <widget class="QTableView" name="lista">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>341</width>
+      <height>241</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="pandasoft.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>cerrar</sender>
+   <signal>clicked()</signal>
+   <receiver>rgventa</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>36</x>
+     <y>309</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

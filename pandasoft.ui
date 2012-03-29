@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>pandasoft</class>
+ <widget class="QMainWindow" name="pandasoft">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>986</width>
+    <height>556</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="pandasoft.qrc">
+    <normaloff>:/images/pandasoft.png</normaloff>:/images/pandasoft.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Customize any plain widget that is a child of a QMainWindow. */
+QMainWindow &gt; .QWidget {
+    background-color: gainsboro;
+    background-image: url(:/images/pagefold.png);
+    background-position: top right;
+    background-repeat: no-repeat
+}
+
+/* Provide a padding for the layout inside the frame. The frame
+   exists only to provide a padding for the top-right image, so we
+   explicitly disable the border. */
+#mainFrame {
+    padding-right: 30px;
+    border-style: none;
+    border-image: none; /* since we set a border-image below */
+}
+
+/* mainFrame won't have this border-image since we have
+   explicitly set it to 'none' using a more specific selector. */
+QFrame, QLineEdit, QComboBox[editable=&quot;true&quot;], QSpinBox {
+    border-image: url(:/images/frame.png) 4;
+    border-width: 3;
+}
+
+QLabel {
+    border: none;
+    border-image: none;
+    padding: 0;
+    background: none;
+}
+
+/* Make text in message boxes selectable. */
+QMessageBox {
+    /* LinksAccessibleByMouse | TextSelectableByMouse */
+    messagebox-text-interaction-flags: 5;
+}
+   
+/* Set the selection colors for all widgets. */
+QWidget {
+    selection-color: black;
+    selection-background-color: Silver;
+    color: black;
+}
+
+/* Make the entire row selected in item views. */
+QAbstractItemView {
+    show-decoration-selected: 1;
+}
+
+/* Nice WindowsXP-style password character for password line edits. */
+QLineEdit[echoMode=&quot;2&quot;] {
+    lineedit-password-character: 9679;
+}
+
+/* Customize tooltips. */
+QToolTip {
+    background-color: rgb(200,200,255);
+    border-color: darkslategray;
+    border-width: 1px;
+    border-style: solid;
+    padding: 3px;
+    font: bold;
+    border-radius: 3px;
+    opacity: 200;
+}
+
+/* Customize radio buttons. */
+
+QRadioButton {
+    spacing: 5px;
+}
+
+QRadioButton::indicator {
+    width: 13px;
+    height: 13px;
+}
+
+QRadioButton::indicator::unchecked {
+    image: url(:/images/radiobutton_unchecked.png);
+}
+
+QRadioButton::indicator:unchecked:hover {
+    image: url(:/images/radiobutton_unchecked_hover.png);
+}
+
+QRadioButton::indicator:unchecked:pressed {
+    image: url(:/images/radiobutton_unchecked_pressed.png);
+}
+
+QRadioButton::indicator::checked {
+    image: url(:/images/radiobutton_checked.png);
+}
+
+QRadioButton::indicator:checked:hover {
+    image: url(:/images/radiobutton_checked_hover.png);
+}
+
+QRadioButton::indicator:checked:pressed {
+    image: url(:/images/radiobutton_checked_pressed.png);
+}
+
+/* Customize arrows. */
+
+*::down-arrow, *::menu-indicator {
+    image: url(:/images/down_arrow.png);
+    width: 7px;
+    height: 7px;
+}
+
+*::down-arrow:disabled, *::down-arrow:off {
+   image: url(:/images/down_arrow_disabled.png);
+}
+
+*::up-arrow {
+    image: url(:/images/up_arrow.png);
+    width: 7px;
+    height: 7px;
+}
+
+*::up-arrow:disabled, *::up-arrow:off {
+   image: url(:/images/up_arrow_disabled.png);
+}
+
+/* Customize push buttons and comboboxes. Our read-only combobox
+   is very similar to a push button, so they share the same border image. */
+
+QPushButton {
+    min-width: 4em;
+}
+
+QPushButton, QComboBox[editable=&quot;false&quot;],
+QComboBox[editable=&quot;true&quot;]::drop-down {
+    border-image: url(:/images/pushbutton.png) 5;
+    border-width: 5;
+}
+
+QPushButton:hover, QComboBox[editable=&quot;false&quot;]:hover,
+QComboBox[editable=&quot;true&quot;]::drop-down:hover, QMenuBar::item:hover {
+    border-image: url(:/images/pushbutton_hover.png) 5;
+    border-width: 5;
+}
+
+QPushButton:pressed, QComboBox[editable=&quot;false&quot;]:on,
+QComboBox[editable=&quot;true&quot;]::drop-down:on, QMenuBar::item:on {
+    border-image: url(:/images/pushbutton_pressed.png) 5;
+    border-width: 5;
+}
+
+/* Customize read-only comboboxes. */
+
+QComboBox[editable=&quot;false&quot;] {
+    padding-left: 3px;
+    padding-right: 20px; /* space for the arrow */
+}
+
+QComboBox[editable=&quot;false&quot;]::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    border-left-style: solid;
+    border-left-color: darkgray;
+    border-left-width: 1px;
+}
+
+QComboBox[editable=&quot;false&quot;]::down-arrow {
+    subcontrol-origin: content;
+    subcontrol-position: center;
+    position: relative;
+    left: 1px; /* 1 pixel dropdown border */
+}
+
+/* The combobox arrow is on when the popup is open. */
+QComboBox[editable=&quot;false&quot;]::down-arrow:on {
+    position: relative;
+    top: 1px;
+    left: 2px;
+}
+
+/* Customize editable comboboxes. */
+
+QComboBox[editable=&quot;true&quot;] {
+    padding-right: 16px;
+}
+
+QComboBox[editable=&quot;true&quot;]::drop-down {
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+    width: 13px;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 2px;
+}
+
+QComboBox[editable=&quot;true&quot;]::drop-down,
+QComboBox[editable=&quot;true&quot;]::drop-down:hover,
+QComboBox[editable=&quot;true&quot;]::drop-down:on {
+    border-width: 0px;  
+    border-left-width: 3px; /* we need only left and center part */
+}
+
+/* Shift the arrow when it's open. */
+QComboBox[editable=&quot;true&quot;]::down-arrow:on {
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+
+/* Customize check boxes. */
+QCheckBox {
+    spacing: 5px;
+}
+
+QCheckBox::indicator {
+    width: 13px;
+    height: 13px;
+}
+
+QCheckBox::indicator:unchecked {
+    image: url(:/images/checkbox_unchecked.png);
+}
+
+QCheckBox::indicator:unchecked:hover {
+    image: url(:/images/checkbox_unchecked_hover.png);
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    image: url(:/images/checkbox_unchecked_pressed.png);
+}
+
+QCheckBox::indicator:checked {
+    image: url(:/images/checkbox_checked.png);
+}
+
+QCheckBox::indicator:checked:hover {
+    image: url(:/images/checkbox_checked_hover.png);
+}
+
+QCheckBox::indicator:checked:pressed {
+    image: url(:/images/checkbox_checked_pressed.png);
+}
+
+/* Customize the size grip. */
+QSizeGrip {
+    image: url(:/images/sizegrip.png);
+    width: 16px;
+    height: 16px;
+}
+
+/* Customize the menu bar. */
+QMenuBar {
+    border-image: none;
+    border-style: none;
+    border-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: darkslategray;
+    padding: 2px;
+}
+
+/* Customize spin boxes. */
+
+QSpinBox { 
+    padding-right: 15px;
+}
+
+QSpinBox::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+
+    width: 16px; /* 16 + 2*1px border-width = 15px padding + 3px parent border */
+    border-image: url(:/images/spinup.png) 1;
+    border-width: 1px;
+}
+
+QSpinBox::up-button:hover {
+    border-image: url(:/images/spinup_hover.png) 1;
+}
+
+QSpinBox::up-button:pressed {
+    border-image: url(:/images/spinup_pressed.png) 1;
+}
+
+QSpinBox::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+
+    width: 16px;
+    border-image: url(:/images/spindown.png) 1;
+    border-width: 1px;
+    border-top-width: 0;
+}
+
+QSpinBox::down-button:hover {
+    border-image: url(:/images/spindown_hover.png) 1;
+}
+
+QSpinBox::down-button:pressed {
+    border-image: url(:/images/spindown_pressed.png) 1;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="pandasoftstackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>961</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="page0">
+     <widget class="QLabel" name="titulo">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>40</y>
+        <width>221</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>PANDA-SOFT</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="margin">
+       <number>0</number>
+      </property>
+      <property name="indent">
+       <number>-1</number>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="LogingroupBox">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>80</y>
+        <width>211</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string notr="true"/>
+      </property>
+      <property name="statusTip">
+       <string notr="true"/>
+      </property>
+      <property name="whatsThis">
+       <string notr="true"/>
+      </property>
+      <property name="title">
+       <string notr="true">Acceso al Sistema:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>10</y>
+         <width>151</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="sucursallabel">
+          <property name="font">
+           <font>
+            <family>Verdana</family>
+           </font>
+          </property>
+          <property name="text">
+           <string>Sucursal:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="sucursalcombo">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="editable">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="usuariolabel">
+          <property name="font">
+           <font>
+            <family>Verdana</family>
+           </font>
+          </property>
+          <property name="text">
+           <string>Usuario:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="usuario">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>admin</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="clavelabel">
+          <property name="font">
+           <font>
+            <family>Verdana</family>
+           </font>
+          </property>
+          <property name="text">
+           <string>Clave:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="clave">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="inputMethodHints">
+           <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText</set>
+          </property>
+          <property name="inputMask">
+           <string/>
+          </property>
+          <property name="text">
+           <string>admin</string>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="errorSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QDockWidget" name="error">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>260</y>
+         <width>191</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="floating">
+        <bool>false</bool>
+       </property>
+       <property name="features">
+        <set>QDockWidget::DockWidgetClosable</set>
+       </property>
+       <property name="windowTitle">
+        <string>Rellene todos los campos</string>
+       </property>
+       <widget class="QWidget" name="dockWidgetContents_2"/>
+      </widget>
+      <widget class="QDockWidget" name="error0">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>260</y>
+         <width>191</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>524287</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="floating">
+        <bool>false</bool>
+       </property>
+       <property name="features">
+        <set>QDockWidget::DockWidgetClosable</set>
+       </property>
+       <property name="windowTitle">
+        <string>Usuario o Clave incorrecto</string>
+       </property>
+       <widget class="QWidget" name="dockWidgetContents"/>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>280</y>
+         <width>184</width>
+         <height>39</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="aceptar">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Verdana</family>
+           </font>
+          </property>
+          <property name="text">
+           <string>&amp;Aceptar</string>
+          </property>
+          <property name="icon">
+           <iconset resource="pandasoft.qrc">
+            <normaloff>:/images/dialog-ok.png</normaloff>:/images/dialog-ok.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="cancelar">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Verdana</family>
+           </font>
+          </property>
+          <property name="text">
+           <string>&amp;Salir</string>
+          </property>
+          <property name="icon">
+           <iconset resource="pandasoft.qrc">
+            <normaloff>:/images/dialog-cancel.png</normaloff>:/images/dialog-cancel.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QPushButton" name="salir">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>20</y>
+        <width>101</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>Salir de Pandasoft</string>
+      </property>
+      <property name="statusTip">
+       <string>Salir de Pandasoft</string>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="text">
+       <string>Salir</string>
+      </property>
+      <property name="icon">
+       <iconset resource="pandasoft.qrc">
+        <normaloff>:/images/application-exit.png</normaloff>:/images/application-exit.png</iconset>
+      </property>
+     </widget>
+     <widget class="QLabel" name="cabecera">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="alertadeproducto">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>60</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string notr="true">Hacer pedido urgente de:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="imagelabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>40</y>
+        <width>521</width>
+        <height>350</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="alertalista">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>80</y>
+        <width>141</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>986</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Archivo">
+    <property name="statusTip">
+     <string>Menu Archivo</string>
+    </property>
+    <property name="title">
+     <string>&amp;Archivo</string>
+    </property>
+    <addaction name="action_Salir"/>
+   </widget>
+   <widget class="QMenu" name="menuMenu_Gerente">
+    <property name="title">
+     <string>Menu Gerente</string>
+    </property>
+    <addaction name="actionGestionar_Zona"/>
+    <addaction name="separator"/>
+    <addaction name="actionGestionar_Empleado"/>
+    <addaction name="separator"/>
+    <addaction name="actionGestionar_Usuarios"/>
+    <addaction name="separator"/>
+    <addaction name="actionGestion_de_Sucursal"/>
+    <addaction name="separator"/>
+    <addaction name="actionGestionar_Consignatario"/>
+   </widget>
+   <widget class="QMenu" name="menuMenu_Jefe_de_almacen">
+    <property name="title">
+     <string>Menu Jefe de Almacen</string>
+    </property>
+    <addaction name="actionGestionar_Almacen"/>
+    <addaction name="separator"/>
+    <addaction name="actionGestionar_Productos"/>
+    <addaction name="separator"/>
+    <addaction name="actionGestionar_Reportes"/>
+    <addaction name="separator"/>
+    <addaction name="actionGestionar_Ventas"/>
+    <addaction name="separator"/>
+    <addaction name="actionGestionar_Consignacion"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="statusTip">
+     <string>Contiene Opciones de Ayuda</string>
+    </property>
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionManual_de_Usuario"/>
+    <addaction name="separator"/>
+    <addaction name="actionAcerca_de_Pandasoft"/>
+   </widget>
+   <addaction name="menu_Archivo"/>
+   <addaction name="menuMenu_Gerente"/>
+   <addaction name="menuMenu_Jefe_de_almacen"/>
+   <addaction name="menuAyuda"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Salir">
+   <property name="text">
+    <string>&amp;Salir</string>
+   </property>
+   <property name="toolTip">
+    <string>Salir de Pandasoft</string>
+   </property>
+   <property name="statusTip">
+    <string>Salir de Pandasoft</string>
+   </property>
+  </action>
+  <action name="action_Acerca_de">
+   <property name="text">
+    <string>&amp;Acerca de</string>
+   </property>
+  </action>
+  <action name="actionAyuda">
+   <property name="text">
+    <string>Ayuda</string>
+   </property>
+  </action>
+  <action name="actionManual_de_Usuario">
+   <property name="text">
+    <string>Manual de Usuario</string>
+   </property>
+   <property name="statusTip">
+    <string>Manual de Usuario</string>
+   </property>
+  </action>
+  <action name="actionAcerca_de_Pandasoft">
+   <property name="text">
+    <string>Acerca de Pandasoft</string>
+   </property>
+   <property name="statusTip">
+    <string>Informacion Acerca de Pandasoft</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Zona">
+   <property name="text">
+    <string>Gestionar Zona</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestionar Zona</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Empleado">
+   <property name="text">
+    <string>Gestionar Empleado</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestionar Empleado</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Usuarios">
+   <property name="text">
+    <string>Gestionar Usuarios</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestionar Usuarios</string>
+   </property>
+  </action>
+  <action name="actionGestion_de_Sucursal">
+   <property name="text">
+    <string>Gestion de Sucursal</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestion de Sucursal</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Consignatario">
+   <property name="text">
+    <string>Gestionar Consignatario</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestionar Consignatario</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Almacen">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Gestionar Almacen</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestionar Almacen</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Productos">
+   <property name="text">
+    <string>Gestionar Productos</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestionar Productos</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Reportes">
+   <property name="text">
+    <string>Gestionar Reportes</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestionar Reportes</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Ventas">
+   <property name="text">
+    <string>Gestionar Ventas</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestionar Ventas</string>
+   </property>
+  </action>
+  <action name="actionGestionar_Consignacion">
+   <property name="text">
+    <string>Gestionar Consignaciones</string>
+   </property>
+   <property name="statusTip">
+    <string>Gestionar Consignaciones</string>
+   </property>
+   <property name="whatsThis">
+    <string>Gestionar Consignaciones</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="pandasoft.qrc"/>
+ </resources>
+ <connections/>
+</ui>

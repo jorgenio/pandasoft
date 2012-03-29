@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Greportes</class>
+ <widget class="QDialog" name="Greportes">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>445</width>
+    <height>268</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestionar Reportes</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox_6">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>391</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Gestionar Reportes</string>
+   </property>
+   <widget class="QPushButton" name="zona">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>140</y>
+      <width>105</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Zona</string>
+    </property>
+    <property name="icon">
+     <iconset resource="pandasoft.qrc">
+      <normaloff>:/images/document-print-frame.png</normaloff>:/images/document-print-frame.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="empleado">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>50</y>
+      <width>105</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Empleado</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="usuarior">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>130</y>
+      <width>105</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Usuario</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="productos">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>105</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Producto</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="almacen">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>90</y>
+      <width>105</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Almacen</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ventas">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>30</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ventas</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="consignatario">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Consignatario</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="consignaciones">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>90</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Consignaciones</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_6">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>210</y>
+     <width>331</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="volverboton">
+      <property name="toolTip">
+       <string>Volver a la Pantalla Principal</string>
+      </property>
+      <property name="statusTip">
+       <string>Volver a la Pantalla Principal</string>
+      </property>
+      <property name="text">
+       <string>Volver</string>
+      </property>
+      <property name="icon">
+       <iconset resource="pandasoft.qrc">
+        <normaloff>:/images/go-previous.png</normaloff>:/images/go-previous.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="pandasoft.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>volverboton</sender>
+   <signal>clicked()</signal>
+   <receiver>Greportes</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>367</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>366</x>
+     <y>292</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
